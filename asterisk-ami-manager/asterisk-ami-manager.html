@@ -1,0 +1,76 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Asterisk-AMI', {
+        category: 'input',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            ip: { value: "" },
+            port: { value: "" },
+            user: { value: "" },
+            events: { value: "" }
+        },
+        credentials: {
+            username: { type: "text" },
+            password: { type: "password" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "asterisk-websocket.png",
+        label: function () {
+            return this.name || "Asterisk-AMI";
+        }
+    });
+
+</script>
+
+<script type="text/x-red" data-template-name="Asterisk-AMI">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ip"><i class="icon-tag"></i> IP</label>
+        <input type="text" id="node-input-ip">
+    </div>
+    <div class="form-row">
+        <label for="node-input-port"><i class="icon-tag"></i> Port</label>
+        <input type="text" id="node-input-port">
+    </div>
+    <div class="form-row">
+        <label for="node-input-username"><i class="icon-tag"></i> Username</label>
+        <input type="text" id="node-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-input-password"><i class="icon-tag"></i> Password</label>
+        <input type="password" id="node-input-password">
+    </div>
+    <div class="form-row">
+        <label for="node-input-events"><i class="icon-tag"></i> Events</label>
+        <input type="text" id="node-input-events">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Asterisk-AMI">
+    <p>Transfer Asterisk AMI socket to WebSocket for web browser's</p>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>Standard output
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">string</span></dt>
+                <dd>the standard output of the command.</dd>
+            </dl>
+        </li>
+        <li>Standard error
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">string</span></dt>
+                <dd>the standard error of the command.</dd>
+            </dl>
+        </li>
+    </ol>
+
+    <h3>Details</h3>
+    <p>This node should be used for transfering standard Asterisk AMI Events given through Socket to Node-Red server's component.</p>
+    <p>The Asterisk node can be configured with url, port, username and password.</p>
+    <p>Also AMI Events may be filtering. For this feature put into "Events" field keywords separated by a comma to filter them.</p>
+</script>

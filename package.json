@@ -1,0 +1,21 @@
+{
+  "name": "node-red-asterisk-ami-manager",
+  "version": "0.0.6",
+  "description": "Transfer Asterisk AMI events to json object string representation",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "node-red": {
+    "nodes": {
+      "asterisk-websocket": "asterisk-ami-manager/asterisk-ami-manager.js"
+    }
+  },
+  "author": "Alexey Sviridov",
+  "license": "ISC",
+  "dependencies": {
+    "asterisk-manager": "^0.1.16"
+  }
+}
