@@ -1,6 +1,6 @@
 {
   "name": "node-red-asterisk-ami-manager",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Transfer Asterisk AMI events to json object string representation",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
