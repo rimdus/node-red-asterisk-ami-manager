@@ -44,7 +44,7 @@ module.exports = function (RED) {
         var events = getAllowedEvents(config.events);
 
         var ami = new amanager(config.port, config.ip, username, password, true);
-        ami.keepConnected();
+        
 
         attachEvents(ami, 'connect', function () {
             node.status({ fill: "green", shape: "dot", text: "connected" });
@@ -71,6 +71,8 @@ module.exports = function (RED) {
         node.on('close', function () {
             ami.disconnect();
         });
+
+        ami.keepConnected();
 
     }
     RED.nodes.registerType("Asterisk-AMI", Asterisk, {
