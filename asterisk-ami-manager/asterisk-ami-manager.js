@@ -50,21 +50,22 @@ module.exports = function (RED) {
             node.status({ fill: "green", shape: "dot", text: "connected" });
         });
 
-        attachEvents(ami, 'error close end', function () {
+        attachEvents(ami, 'error close', function () {
             node.status({ fill: "red", shape: "ring", text: "disconnected" });
         });
 
         attachEvents(ami, 'managerevent', function (data) {
             if (filterEvent(events, data)){
-                node.send({ payload: data });
-                console.log(data);
+                node.send([{ payload: data }, null]);
             }
         });
 
-        node.on('input', function (msg) {
-            ami.action(msg.payload, function (err, res) {
+        attachEvents(ami, 'rawevent', function (data) {
+                node.send([null, { payload: data }]);
+        });
 
-            });
+        node.on('input', function (msg) {
+            ami.action(msg.payload, function (err, res) {});
         });
 
         node.on('close', function () {
