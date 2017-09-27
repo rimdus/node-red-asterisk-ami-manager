@@ -68,9 +68,14 @@ module.exports = function (RED) {
             ami.action(msg.payload, function (err, res) {});
         });
 
-        node.on('close', function () {
-            ami.disconnect();
-        });
+        node.on('close', function(removed, done) {
+			ami.disconnect();
+			
+			ami.on('close', function emitDone(){
+				done();
+				ami.removeListener('close', emitDone);
+			});
+		});	
 
         ami.keepConnected();
 
