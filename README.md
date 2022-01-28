@@ -1,6 +1,6 @@
 # Docs
 
-This solution for communicate Asterisk AMI with Node-red server as simple node.
+Communicate from Node-Red to an Asterisk server via AMI as a simple node. 
 
 ## Install
 
@@ -18,6 +18,7 @@ password: username's password for authentication
 events: events separated by a comma which will be filtered or stay field empty for forwarding all events.
 ## Contributors
 
+* [Mathias Schäffler](https://github.com/m-schaeffler)
 * [Alexey Sviridov](https://github.com/rimdus)
 
 ## License
@@ -25,11 +26,15 @@ events: events separated by a comma which will be filtered or stay field empty f
 MIT License
 -----------
 
-Copyright (C) 2017 by
+Copyright (C) 2022 by
 
-[Alexey Sviridov](https://github.com/rimdus)
+[Mathias Schäffler](https://github.com/m-schaeffler)
 
-Based on a work Copyright (C) 2012 - 2017 by Philipp Dunkel and others.
+Based on a work Copyright (C) 2012 - 2017 by 
+
+* [Alexey Sviridov](https://github.com/rimdus)
+* Philipp Dunkel
+* and others.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
